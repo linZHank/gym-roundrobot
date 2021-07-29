@@ -33,28 +33,56 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <cylinder length="0.003" radius="0.127"/>
+                <cylinder length="0.003" radius="0.0635"/>
             </geometry>
             <material name="white"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <cylinder length="0.003" radius="0.127"/>
+                <cylinder length="0.003" radius="0.0635"/>
             </geometry>
         </collision>
         <inertial>
             <mass value="0.02"/>
             <origin rpy="0 0 0" xyz="0 0 0"/>
-            <inertia ixx="0.00008066" ixy="0" ixz="0" iyy="0.00008066" iyz="0" izz="0.00016129000000000002"/>
+            <inertia ixx="0.00002017625" ixy="0" ixz="0" iyy="0.00002017625" iyz="0" izz="0.0000403225"/>
         </inertial>
     </link>
 
     <joint name="chassis2caster" type="fixed">
-        <origin rpy="0 0 0" xyz="0.125 0 -0.05"/>
+        <origin rpy="0 3.141592653589793 1.5707963267948966" xyz="0.054 0 -0.003"/>
         <parent link="chassis"/>
         <child link="caster"/>
     </joint>
+
+    <link name="caster">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/pololu-ball-caster-with-0-375in-ball.dae"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin rpy=" 0 0 0" xyz="0 0 -0.00505"/>
+            <geometry>
+                <box size="0.0191 0.0121 0.0101"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.004"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.000000145161" ixy="0" ixz="0" iyy="0.000000145161" iyz="0" izz="0.000000145161"/>
+        </inertial>
+        <contact>
+            <lateral_friction value="0.0"/>
+            <rolling_friction value="0.0"/>
+            <stiffness value="30000"/>
+            <damping value="1000"/>
+        </contact>
+    </link>
+    
 
 </robot>
 
