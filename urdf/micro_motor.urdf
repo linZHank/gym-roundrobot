@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<robot name="micro_motor" xmlns:xacro="https://www.ros.org/wiki/xacro" >
+    <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/micro-metal-gearmotor-with-1086-bracket.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+</robot>
+

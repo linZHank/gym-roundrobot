@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+
+
+<robot name="round_robot" xmlns:xacro="https://www.ros.org/wiki/xacro" >
+
+    <!-- Colors -->
+    <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+    <material name="blue">
+    <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+    <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+    </material>
+    <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+    </material>
+    <material name="orange">
+    <color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+    </material>
+    <material name="brown">
+    <color rgba="${222/255} ${207/255} ${195/255} 1.0"/>
+    </material>
+    <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+    <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+
+    <link name="chassis">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.003" radius="0.127"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.003" radius="0.127"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.02"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.00008066" ixy="0" ixz="0" iyy="0.00008066" iyz="0" izz="0.00016129000000000002"/>
+        </inertial>
+    </link>
+
+    <joint name="chassis2caster" type="fixed">
+        <origin rpy="0 0 0" xyz="0.125 0 -0.05"/>
+        <parent link="chassis"/>
+        <child link="caster"/>
+    </joint>
+
+</robot>
+
