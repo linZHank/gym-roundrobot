@@ -5,7 +5,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://urdf/meshes/pololu-ball-caster-with-0-375in-ball.dae"/>
+                <mesh filename="package://urdf/meshes/micro-metal-gearmotor-with-1086-bracket.dae"/>
             </geometry>
         </visual>
     </link>

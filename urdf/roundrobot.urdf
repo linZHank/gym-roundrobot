@@ -83,6 +83,140 @@
         </contact>
     </link>
     
+    <joint name="chassis2left_motor" type="fixed">
+        <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0.033 0.00875"/>
+        <parent link="chassis"/>
+        <child link="left_motor" />
+    </joint>
+
+    <link name="left_motor">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/micro-metal-gearmotor-with-1086-bracket.dae"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <origin rpy=" 0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.038 0.012 0.010"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.0095"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0000001931666666" ixy="0" ixz="0" iyy="0.0000012223333333" iyz="0" izz="0.0000012571666666"/>
+        </inertial>
+        <contact>
+            <lateral_friction value="0.0"/>
+            <rolling_friction value="0.0"/>
+            <stiffness value="30000"/>
+            <damping value="1000"/>
+        </contact>
+    </link>
+    
+    <joint name="left_motor2left_wheel" type="continuous">
+        <origin rpy="0 1.5707963267948966 0" xyz="0.016 0 0"/>
+        <parent link="left_motor"/>
+        <child link="left_wheel" />
+        <axis rpy="0 0 0" xyz="1 0 0"/>
+    </joint>
+
+    <link name="left_wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/pololu-wheel-42x19mm.dae"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin rpy=" 0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.019" radius="0.021"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.019"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0000001931666666" ixy="0" ixz="0" iyy="0.0000012223333333" iyz="0" izz="0.0000012571666666"/>
+        </inertial>
+        <contact>
+            <lateral_friction value="0.0"/>
+            <rolling_friction value="0.0"/>
+            <stiffness value="3000"/>
+            <damping value="10000"/>
+        </contact>
+    </link>
+    
+    <joint name="chassis2right_motor" type="fixed">
+        <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 -0.033 0.00875"/>
+        <parent link="chassis"/>
+        <child link="right_motor" />
+    </joint>
+
+    <link name="right_motor">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/micro-metal-gearmotor-with-1086-bracket.dae"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <origin rpy=" 0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.038 0.012 0.010"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.0095"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0000001931666666" ixy="0" ixz="0" iyy="0.0000012223333333" iyz="0" izz="0.0000012571666666"/>
+        </inertial>
+        <contact>
+            <lateral_friction value="0.0"/>
+            <rolling_friction value="0.0"/>
+            <stiffness value="30000"/>
+            <damping value="1000"/>
+        </contact>
+    </link>
+    
+    <joint name="right_motor2right_wheel" type="continuous">
+        <origin rpy="0 -1.5707963267948966 0" xyz="0.016 0 0"/>
+        <parent link="right_motor"/>
+        <child link="right_wheel" />
+        <axis rpy="0 0 0" xyz="1 0 0"/>
+    </joint>
+
+    <link name="right_wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://urdf/meshes/pololu-wheel-42x19mm.dae"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin rpy=" 0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.019" radius="0.021"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.019"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0000001931666666" ixy="0" ixz="0" iyy="0.0000012223333333" iyz="0" izz="0.0000012571666666"/>
+        </inertial>
+        <contact>
+            <lateral_friction value="0.0"/>
+            <rolling_friction value="0.0"/>
+            <stiffness value="3000"/>
+            <damping value="10000"/>
+        </contact>
+    </link>
+
 
 </robot>
 
