@@ -3,16 +3,17 @@ import time
 import pybullet_data
 physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
-p.setGravity(0,0,0)
-# planeId = p.loadURDF("plane.urdf")
+p.setGravity(0,0,-9.81)
+planeId = p.loadURDF("plane.urdf")
 # startPos = [0,0,0]
 # startOrientation = p.getQuaternionFromEuler([0,0,0])
 botId = p.loadSDF("model_data/roundrobot.sdf")
+#  botId = p.loadSDF("/home/linzhank/.local/lib/python3.8/site-packages/pybullet_data/kuka_iiwa/kuka_with_gripper.sdf")
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-# for i in range (3000):
-#     p.stepSimulation()
-#     time.sleep(1./30.)
-# botPos, botOrn = p.getBasePositionAndOrientation(botId)
-# print(botPos,botOrn)
-# p.disconnect()
+for i in range (200):
+   p.stepSimulation()
+   time.sleep(1./30.)
+botPos, botOrn = p.getBasePositionAndOrientation(botId)
+print(botPos,botOrn)
+p.disconnect()
 
