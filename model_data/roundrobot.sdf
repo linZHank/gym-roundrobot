@@ -1,149 +1,216 @@
-<?xml version='1.0'?>
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="round_robot">
+    <pose>0 0 0.015 0 0 0</pose>
+    <static>true</static>
+    <link name="chassis">
+      <!-- chassis link contains caster and two motors-->
+      <inertial>
+        <mass>0.037</mass>
+        <inertia>
+          <ixx>0.00014922099999999997</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00014922099999999997</iyy>
+          <iyz>0</iyz>
+          <izz>0.0002983865</izz>
+        </inertia>
+      </inertial>
+      <collision name="chassis_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0635</radius>
+            <length>0.003</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="chassis_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.0635</radius>
+            <length>0.003</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <!-- Attach caster-->
+      <inertial>
+        <pose>0.054 0 -0.0053375 0 3.141592653589793 1.5707963267948966</pose> <!-- only calculate metal ball inertia-->
+        <mass>0.004</mass>
+        <inertia>
+          <ixx>0.00000003629025</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000003629025</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000003629025</izz>
+        </inertia>
+      </inertial>
+      <collision name="caster_collision">
+        <pose>0.054 0 -0.003 0 3.141592653589793 1.5707963267948966</pose>
+        <geometry>
+          <sphere>
+            <radius>.02</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <bullet>
+              <friction>0</friction>
+              <friction2>0</friction2>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="caster_visual">
+        <pose>0.054 0 -0.003 0 3.141592653589793 1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/pololu-ball-caster-with-0-375in-ball.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Attach left motor-->
+      <inertial>
+        <pose>0 0.033 0.00875 1.5707963267948966 0 1.5707963267948966</pose>
+        <mass>0.0095</mass>
+        <inertia>
+          <ixx>0.0000004916666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000006143333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000001931666667</izz>
+        </inertia>
+      </inertial>
+      <collision name="leftmotor_collision">
+        <pose>0 0.033 0.00875 1.5707963267948966 0 1.5707963267948966</pose>
+        <geometry>
+          <box>
+            <size>0.038 0.012 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="leftmotor_visual">
+        <pose>0 0.033 0.00875 1.5707963267948966 0 1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/micro-metal-gearmotor-with-1086-bracket.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Attach right motor-->
+      <inertial>
+        <pose>0 -0.033 0.00875 1.5707963267948966 0 -1.5707963267948966</pose>
+        <mass>0.0095</mass>
+        <inertia>
+          <ixx>0.0000004916666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000006143333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000001931666667</izz>
+        </inertia>
+      </inertial>
+      <collision name="rightmotor_collision">
+        <pose>0 -0.033 0.00875 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <box>
+            <size>0.038 0.012 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="rightmotor_visual">
+        <pose>0 -0.033 0.00875 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/micro-metal-gearmotor-with-1086-bracket.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
 
+    <link name="left_wheel">
+      <inertial>
+        <pose>0 0.045 0.00875 -1.5707963267948966 0 0</pose>
+        <mass>0.019</mass>
+        <inertia>
+          <ixx>0.0000026663333333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000026663333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000041895</izz>
+        </inertia>
+      </inertial>
+      <collision>
+        <pose>0 0.045 0.00875 -1.5707963267948966 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.019</length>
+            <radius>0.021</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual>
+        <pose>0 0.045 0.00875 -1.5707963267948966 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/pololu-wheel-42x19mm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
 
-<sdf version='1.8'>
-    <model name="round_robot">
-        <pose>0 0 0.1 0 0 0</pose>
-        <static>true</static>
+    <joint type="continuous" name="left_wheel_hinge">
+      <child>left_wheel</child>
+      <parent>chassis</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
 
-        <link name='chassis'> <!-- chassis link contains caster and two motors-->
-            <collision name='chassis_collision'>
-                <geometry>
-                    <cylinder>
-                        <radius>0.0635</radius>
-                        <length>0.003</length>
-                    </cylinder>
-                </geometry>
-            </collision>
-            <visual name='chassis_visual'>
-                <geometry>
-                    <cylinder>
-                        <radius>0.0635</radius>
-                        <length>0.003</length>
-                    </cylinder>
-                </geometry>
-            </visual>
-            <!-- Attach caster-->
-            <collision name='caster_collision'>
-                <pose>0.054 0 -0.003 0 3.141592653589793 1.5707963267948966</pose>
-                <geometry>
-                    <sphere>
-                        <radius>.02</radius>
-                    </sphere>
-                </geometry>
-                <surface>
-                    <friction>
-                        <bullet>
-                            <friction>0</friction>
-                            <friction2>0</friction2>
-                        </bullet>
-                    </friction>
-                </surface>
-            </collision>
-            <visual name='caster_visual'>
-                <pose>0.054 0 -0.003 0 3.141592653589793 1.5707963267948966</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>meshes/pololu-ball-caster-with-0-375in-ball.dae</uri>
-                    </mesh>
-                </geometry>
-            </visual>
-            <!-- Attach left motor-->
-            <collision name='leftmotor_collision'>
-                <pose>0 0.033 0.00875 1.5707963267948966 0 1.5707963267948966</pose>
-                <geometry>
-                    <box>
-                        <size>0.038 0.012 0.01</size>
-                    </box>
-                </geometry>
-            </collision>
-            <visual name='leftmotor_visual'>
-                <pose>0 0.033 0.00875 1.5707963267948966 0 1.5707963267948966</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>meshes/micro-metal-gearmotor-with-1086-bracket.dae</uri>
-                    </mesh>
-                </geometry>
-            </visual>
-            <!-- Attach right motor-->
-            <collision name='rightmotor_collision'>
-                <pose>0 -0.033 0.00875 1.5707963267948966 0 -1.5707963267948966</pose>
-                <geometry>
-                    <box>
-                        <size>0.038 0.012 0.01</size>
-                    </box>
-                </geometry>
-            </collision>
-            <visual name='rightmotor_visual'>
-                <pose>0 -0.033 0.00875 1.5707963267948966 0 -1.5707963267948966</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>meshes/micro-metal-gearmotor-with-1086-bracket.dae</uri>
-                    </mesh>
-                </geometry>
-            </visual>
-        </link>
-
-        <link name='left_wheel'>
-            <collision>
-                <pose>0 0.045 0.00875 -1.5707963267948966 0 0</pose>
-                <geometry>
-                    <cylinder>
-                        <length>0.019</length>
-                        <radius>0.021</radius>
-                    </cylinder>
-                </geometry>
-            </collision>
-            <visual>
-                <pose>0 0.045 0.00875 -1.5707963267948966 0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>meshes/pololu-wheel-42x19mm.dae</uri>
-                    </mesh>
-                </geometry>
-            </visual>
-        </link>
-
-        <joint type="continuous" name="left_wheel_hinge">
-            <child>left_wheel</child>
-            <parent>chassis</parent>
-            <axis>
-                <xyz>0 1 0</xyz>
-            </axis>
-        </joint>
-
-        <link name='right_wheel'>
-            <collision>
-                <pose>0 -0.045 0.00875 1.5707963267948966 0 0</pose>
-                <geometry>
-                    <cylinder>
-                        <length>0.019</length>
-                        <radius>0.021</radius>
-                    </cylinder>
-                </geometry>
-            </collision>
-            <visual>
-                <pose>0 -0.045 0.00875 1.5707963267948966 0 0</pose>
-                <geometry>
-                    <mesh>
-                        <scale>1 1 1</scale>
-                        <uri>meshes/pololu-wheel-42x19mm.dae</uri>
-                    </mesh>
-                </geometry>
-            </visual>
-        </link>
-
-        <joint type="continuous" name="right_wheel_hinge">
-            <child>right_wheel</child>
-            <parent>chassis</parent>
-            <axis>
-                <xyz>0 1 0</xyz>
-            </axis>
-        </joint>
-
-    </model>
+    <link name="right_wheel">
+      <inertial>
+        <pose>0 -0.045 0.00875 1.5707963267948966 0 0</pose>
+        <mass>0.019</mass>
+        <inertia>
+          <ixx>0.0000026663333333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000026663333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000041895</izz>
+        </inertia>
+      </inertial>
+      <collision>
+        <pose>0 -0.045 0.00875 1.5707963267948966 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.019</length>
+            <radius>0.021</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual>
+        <pose>0 -0.045 0.00875 1.5707963267948966 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/pololu-wheel-42x19mm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint type="continuous" name="right_wheel_hinge">
+      <child>right_wheel</child>
+      <parent>chassis</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+  </model>
 </sdf>

@@ -13,12 +13,6 @@ planeId = p.loadURDF("plane.urdf")
 botId = p.loadSDF("model_data/roundrobot.sdf")[0]
 nj = p.getNumJoints(botId)
 pos, ori = p.getBasePositionAndOrientation(botId)
-#  p.setJointMotorControlArray(
-    #  bodyUniqueId=botId,
-    #  jointIndices=range(nj),
-    #  controlMode=p.VELOCITY_CONTROL,
-    #  targetVelocity=nj * [1.0],
-#  )
 for wheel in range(p.getNumJoints(botId)):
     p.setJointMotorControl2(botId, wheel, p.VELOCITY_CONTROL, targetVelocity=4, force=500)
     p.getJointInfo(botId, wheel)
